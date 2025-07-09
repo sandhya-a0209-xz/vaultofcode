@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.5em;
+    }
+
+    .choices {
+      margin-top: 30px;
+    }
+
+    .choice-btn {
+      padding: 15px 25px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .choice-btn:hover {
+      background-color: #ddd;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Rock, Paper, Scissors</h1>
+
+  <div class="box">
+    <p>Choose one:</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="play('rock')">✊ Rock</button>
+      <button class="choice-btn" onclick="play('paper')">✋ Paper</button>
+      <button class="choice-btn" onclick="play('scissors')">✌️ Scissors</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function play(playerChoice) {
+      const choices = ["rock", "paper", "scissors"];
+      const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+      let resultText = `You chose ${playerChoice} | Computer chose ${computerChoice}. `;
+
+      if (playerChoice === computerChoice) {
+        resultText += "It's a draw! 🤝";
+      } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+      ) {
+        resultText += "You win! 🎉";
+      } else {
+        resultText += "You lose! 😢";
+      }
+
+      document.getElementById("result").innerText = resultText;
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+

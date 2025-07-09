@@ -1,0 +1,110 @@
+booking system
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Booking System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f7ff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #4a90e2;
+      color: white;
+      padding: 20px 0;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      margin: 40px auto;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    input, select {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #confirmation {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Online Booking System</h1>
+  </header>
+
+  <div class="container">
+    <h2>Book Your Appointment</h2>
+    
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <input type="date" id="date" required>
+    <input type="time" id="time" required>
+    
+    <select id="service">
+      <option value="">Select a service</option>
+      <option value="Haircut">Haircut</option>
+      <option value="Consultation">Consultation</option>
+      <option value="Massage">Massage</option>
+    </select>
+
+    <button onclick="bookAppointment()">Book Now</button>
+
+    <div id="confirmation"></div>
+  </div>
+
+  <script>
+    function bookAppointment() {
+      const name = document.getElementById("name").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const service = document.getElementById("service").value;
+      const confirmation = document.getElementById("confirmation");
+
+      if (name && date && time && service) {
+        confirmation.textContent = `✅ ${name}, your ${service} appointment is booked on ${date} at ${time}.`;
+      } else {
+        confirmation.style.color = "red";
+        confirmation.textContent = "❌ Please fill in all fields.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
